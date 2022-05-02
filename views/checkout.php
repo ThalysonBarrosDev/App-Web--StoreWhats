@@ -104,10 +104,6 @@
                 <button class="btn btn-primary">Finalizar Pedido</button>
             </div>  
         </form>
-
-
-
-
         
     </main>
 
