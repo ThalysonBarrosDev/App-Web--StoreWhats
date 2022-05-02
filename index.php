@@ -40,7 +40,7 @@
                             <h5 class="card-title text-center"><?= $produto['nome_prod']; ?></h5>
                             <p class="card-text text-center"><?php echo 'R$ ' . Aplicacao::formatNumber($produto['preco_prod']); ?></p>
 
-                            <div class="d-flex">
+                            <div class="d-flex justify-content-center">
                                 <a href='views/cart.php?add=cart&id=<?= $produto['cod_prod']; ?>' class="btn btn-primary">Adicionar ao Carinho</a>
                             </div>
                         </div>

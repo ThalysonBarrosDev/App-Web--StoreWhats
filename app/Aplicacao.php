@@ -54,10 +54,12 @@
                 if (!isset($_SESSION['produtos'][$idproduto])) {
 
                     $_SESSION['produtos'][$idproduto] = 1;
+                    header('Location: cart.php');
 
                 } else {
 
                     $_SESSION['produtos'][$idproduto] += 1;
+                    header('Location: cart.php');
 
                 }
 
@@ -71,7 +73,7 @@
 
                 $conn = Database::getConnection();
 
-                echo '<table class="table table-hover table-striped"><thead><th>Código do Produto</th><th>Quantidade</th><th>Nome</th><th>Preço</th></thead><tbody>';
+                echo '<table class="table table-hover table-striped"><thead><th class="col-sm-1">Código</th><th class="col-sm-1">QTD</th><th>Produto</th><th class="col-sm-1">Preço</th></thead><tbody>';
 
                 foreach ($_SESSION['produtos'] as $idproduto => $quantidade) {
 
@@ -82,7 +84,7 @@
 
                         while ($row = $result->fetch_assoc()) {
 
-                            echo '<tr><td>'.$row['cod_prod'].'</td><td>'.$quantidade.'</td><td>'.$row['nome_prod'].'</td><td>'.Aplicacao::formatNumber($row['preco_prod']).'</td></tr>';
+                            echo '<tr><td>'.$row['cod_prod'].'</td><td>'.$quantidade.'</td><td>'.$row['nome_prod'].'</td><td>R$ '.Aplicacao::formatNumber($row['preco_prod']).'</td></tr>';
                 
                         }
 
@@ -127,7 +129,7 @@
                 
                 }
 
-                echo Aplicacao::formatNumber($valor);
+                echo 'R$ ' . Aplicacao::formatNumber($valor);
 
                 $conn->close();
 

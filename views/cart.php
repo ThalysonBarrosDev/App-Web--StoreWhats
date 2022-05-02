@@ -31,12 +31,12 @@
         <?php Aplicacao::cartProducts(); ?><br><hr>
 
         <div style="display: flex; justify-content: flex-end; margin-right: 10px;">
-            <h5>Total: <?php Aplicacao::subCheckout(); ?></h5>
+            <h5>Subtotal: <?php Aplicacao::subCheckout(); ?></h5>
         </div>
 
         <div class="d-flex justify-content-center">
             <a href='../events/destroy.php' class="btn btn-primary" style="margin-right: 10px;">Limpar Carrinho</a>
-            <a href='' class="btn btn-primary">Finalizar Pedido</a>
+            <a href='checkout.php' class="btn btn-primary">Finalizar Pedido</a>
         </div>
         
     </main>
