@@ -1,4 +1,4 @@
-<?php include_once ('../app/Aplicacao.php'); ?>
+<?php require_once ('../config/config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -31,60 +31,60 @@
     
         <h3 style="text-align: center;">Preencha as Informações:</h3>
 
-        <form>
+        <form action="../events/pedido.php" method="POST">
             <div class="form-group row">
                 <div class="col-md-8 mt-3">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control" name="email" placeholder="E-mail">
+                    <input type="text" class="form-control" name="inputNome" placeholder="Ex: Nome Sobrenome">
                 </div>
                 <div class="col-md-4 mt-3">
                     <label for="telefone">Telefone</label>
-                    <input type="text" class="form-control" name="site" placeholder="Site">
+                    <input type="text" class="form-control" name="inputTel" placeholder="Ex: (00) 9.9999-9999">
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-9 mt-3">
                     <label for="email">E-mail</label>
-                    <input type="email" class="form-control" name="email" placeholder="E-mail">
+                    <input type="email" class="form-control" name="inputEmail" placeholder="Ex: email@storewhats.com.br">
                 </div>
                 <div class="col-md-3 mt-3">
                     <label for="cep">CEP</label>
-                    <input type="text" class="form-control" name="site" placeholder="Site">
+                    <input type="text" class="form-control" name="inputCep" placeholder="Ex: 60700-000">
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-10 mt-3 mb-2">
                     <label for="logradouro">Logradouro</label>
-                    <input type="text" class="form-control" name="email" placeholder="E-mail">
+                    <input type="text" class="form-control" name="inputLogra" placeholder="Ex: Rua Store Whats">
                 </div>
                 <div class="col-md-2 mt-3 mb-2">
                     <label for="numero">Número</label>
-                    <input type="text" class="form-control" name="site" placeholder="Site">
+                    <input type="text" class="form-control" name="inputNumLogra" placeholder="Ex: 2022">
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-8 mt-3">
                     <label for="pagamento">Pagamento</label>
-                    <select class="form-control">
-                        <option>Dinheiro</option>
-                        <option>Cartão de Crédito</option>
-                        <option>Cartão de Débito</option>
-                        <option>Pix</option>
+                    <select class="form-control" name="for_pagamento">
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Cartão de Débito">Cartão de Débito</option>
+                        <option value="Pix">Pix</option>
                     </select>
                 </div>
 
                 <div class="col-md-4 mt-5">
                     <label for="dinheirotroco" style="margin-right: 10px;">Precisa de Troco?</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="sim">
-                        <label class="form-check-label" for="inlineCheckbox2">Sim</label>
+                        <input class="form-check-input" type="checkbox" name="inputTrocosim" value="trocosim">
+                        <label class="form-check-label" for="checkbox-sim">Sim</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="nao" checked>
-                        <label class="form-check-label" for="inlineCheckbox2">Não</label>
+                        <input class="form-check-input" type="checkbox" name="inputTroconao" value="troconao" checked>
+                        <label class="form-check-label" for="checkbox-nao">Não</label>
                     </div>
                 </div>
             </div>
@@ -92,10 +92,22 @@
             <div class="form-group row">
                 <div class="col-md-12 mt-5 mb-2">
                     <label for="exampleFormControlTextarea1">Observação:</label>
-                    <textarea class="form-control" name="observacao" rows="3"></textarea>
+                    <textarea class="form-control" name="inputObservacao" rows="3" placeholder="Ex: Preciso de troco para ..."></textarea>
                 </div>
             </div>
+
+            <div style="margin-left: 10px; margin-top: 50px;">
+                <h5>Total: R$ <?php echo str_replace('.', ',', Checkout::subCheckout()); ?></h5>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end;">
+                <button class="btn btn-primary">Finalizar Pedido</button>
+            </div>  
         </form>
+
+
+
+
         
     </main>
 

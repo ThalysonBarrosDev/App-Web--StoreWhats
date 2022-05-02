@@ -1,14 +1,6 @@
 <?php
 
-    session_start();
-
-    class Aplicacao {
-
-        public static function formatNumber($num) {
-
-            return number_format($num, 2, ',', ' ');
-
-        }
+    class Products {
 
         public static function getProducts() {
 
@@ -84,7 +76,7 @@
 
                         while ($row = $result->fetch_assoc()) {
 
-                            echo '<tr><td>'.$row['cod_prod'].'</td><td>'.$quantidade.'</td><td>'.$row['nome_prod'].'</td><td>R$ '.Aplicacao::formatNumber($row['preco_prod']).'</td></tr>';
+                            echo '<tr><td>'.$row['cod_prod'].'</td><td>'.$quantidade.'</td><td>'.$row['nome_prod'].'</td><td>R$ '.str_replace('.', ',', $row['preco_prod']).'</td></tr>';
                 
                         }
 
@@ -94,42 +86,6 @@
                 }
 
                 echo '</tbody></table>';
-
-                $conn->close();
-
-            }
-
-        }
-
-        public static function subCheckout() {
-
-            require_once ('../database/Database.php');
-
-            $valor = 0.00;
-
-            if (isset($_SESSION['produtos'])) {
-
-                $conn = Database::getConnection();
-
-                foreach ($_SESSION['produtos'] as $idproduto => $quantidade) {
-
-                    $sql = "SELECT * FROM tb_produto WHERE cod_prod = ".$idproduto."";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-
-                        while ($row = $result->fetch_assoc()) {
-
-                            $valor += $row['preco_prod'] * $quantidade;
-
-                        }
-
-
-                    }
-                
-                }
-
-                echo 'R$ ' . Aplicacao::formatNumber($valor);
 
                 $conn->close();
 

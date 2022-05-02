@@ -1,4 +1,4 @@
-<?php include_once ('../app/Aplicacao.php'); ?>
+<?php require_once ('../config/config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -28,15 +28,15 @@
         
         <h3 style="text-align: center;">Carrinho:</h3><br><hr>
 
-        <?php Aplicacao::cartProducts(); ?><br><hr>
+        <?php Products::cartProducts(); ?><br><hr>
 
         <div style="display: flex; justify-content: flex-end; margin-right: 10px;">
-            <h5>Subtotal: <?php Aplicacao::subCheckout(); ?></h5>
+            <h5>Subtotal: R$ <?php echo str_replace('.', ',', Checkout::subCheckout()); ?></h5>
         </div>
 
         <div class="d-flex justify-content-center">
             <a href='../events/destroy.php' class="btn btn-primary" style="margin-right: 10px;">Limpar Carrinho</a>
-            <a href='checkout.php' class="btn btn-primary">Finalizar Pedido</a>
+            <a href='checkout.php' class="btn btn-primary">Finalizar Compras</a>
         </div>
         
     </main>

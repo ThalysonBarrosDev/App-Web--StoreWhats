@@ -1,4 +1,4 @@
-<?php include_once ('app/Aplicacao.php'); ?>
+<?php require_once ('config/config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -29,7 +29,7 @@
         <h3 style="text-align: center;">Seja bem-vindo a StoreWhats :)</h3><hr>
 
         <div class="row">
-            <?php foreach ($dados = Aplicacao::getProducts() as $produto): ?>
+            <?php foreach ($dados = Products::getProducts() as $produto): ?>
                 <div class="col-sm-3 mb-2">
                     <div class="card">
                         <div class="d-flex justify-content-center">
@@ -38,7 +38,7 @@
                     
                         <div class="card-body">
                             <h5 class="card-title text-center"><?= $produto['nome_prod']; ?></h5>
-                            <p class="card-text text-center"><?php echo 'R$ ' . Aplicacao::formatNumber($produto['preco_prod']); ?></p>
+                            <p class="card-text text-center"><?php echo 'R$ ' . str_replace('.', ',', $produto['preco_prod']); ?></p>
 
                             <div class="d-flex justify-content-center">
                                 <a href='views/cart.php?add=cart&id=<?= $produto['cod_prod']; ?>' class="btn btn-primary">Adicionar ao Carinho</a>
