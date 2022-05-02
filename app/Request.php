@@ -59,25 +59,13 @@
                         if ($result_insertitem === TRUE) {
 
                             echo '<h5>Pedido finalizado com sucesso!</h5><hr><br><br><h4>Aguarde, você será redirecionado...</h4></div></main>';
-                            
+
                             include_once ('../views/template/footer.php');
 
                             function redirectWpp($nomecliente, $telecliente, $emailcliente, $cepcliente, $logradouro, $numlogradouro, $numpedido, $valorpedido, $formapagamento, $troco, $observacao) {
 
-                                $nome = $nomecliente;
-                                $tel = $telecliente;
-                                $email = $emailcliente;
-                                $numeropedido = $numpedido;
-                                $vlrped = $valorpedido;
-                                $formapg = $formapagamento;
-                                $trocope = $troco;
-                                $observacaope = $observacao;
-                                $cep = $cepcliente;
-                                $logradoped = $logradouro;
-                                $numlogra = $numlogradouro;
-
                                 $numero = 5585998729476;
-                                $texto = "&text=Pedido via StoreWhats realizado. Segue abaixo as informacoes:%0A%0ANumero do Pedido: $numeropedido%0AValor: R$$vlrped%0AForma de Pagamento: $formapg%0ATroco: $trocope%0AOBS: $observacaope%0A%0AInformacoes do Cliente => %0A%0ANome: $nome%0AE-mail: $email%0ATelefone: $tel%0A%0AInformacoes da Entrega =>%0A%0ACEP: $cep%0ALogradouro: $logradoped%0ANum: $numlogra";
+                                $texto = "&text=Pedido via StoreWhats realizado. Segue abaixo as informacoes:%0A%0ANumero do Pedido: $numpedido%0AValor: R$$valorpedido%0AForma de Pagamento: $formapagamento%0ATroco: $troco%0AOBS: $observacao%0A%0AInformacoes do Cliente => %0A%0ANome: $nomecliente%0AE-mail: $emailcliente%0ATelefone: $telecliente%0A%0AInformacoes da Entrega =>%0A%0ACEP: $cepcliente%0ALogradouro: $logradouro%0ANum: $numlogradouro";
 
                                 $url_base = "https://api.whatsapp.com/send?phone=".$numero."".$texto."";
 
