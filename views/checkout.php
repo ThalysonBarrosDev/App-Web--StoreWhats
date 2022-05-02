@@ -79,11 +79,11 @@
                 <div class="col-md-4 mt-5">
                     <label for="dinheirotroco" style="margin-right: 10px;">Precisa de Troco?</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="inputTrocosim" value="trocosim">
+                        <input class="form-check-input" type="checkbox" name="inputTrocosim" value="Sim">
                         <label class="form-check-label" for="checkbox-sim">Sim</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="inputTroconao" value="troconao" checked>
+                        <input class="form-check-input" type="checkbox" name="inputTroconao" value="Nao" checked>
                         <label class="form-check-label" for="checkbox-nao">Não</label>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
             <div class="form-group row">
                 <div class="col-md-12 mt-5 mb-2">
                     <label for="exampleFormControlTextarea1">Observação:</label>
-                    <textarea class="form-control" name="inputObservacao" rows="3" placeholder="Ex: Preciso de troco para ..."></textarea>
+                    <textarea class="form-control" name="inputObservacao" rows="3" placeholder="Ex: Preciso de troco para ..." value="Não"></textarea>
                 </div>
             </div>
 
@@ -107,10 +107,4 @@
         
     </main>
 
-    <footer class="footer">
-        <a href="https://www.althdevelopment.com" target="_blank">AlthDevelopment © <?php echo date('Y'); ?></a>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-</html>
+    <?php include_once ('template/footer.php'); ?>

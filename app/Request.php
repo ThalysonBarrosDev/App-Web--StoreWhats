@@ -13,7 +13,7 @@
                 $logradouro = $_POST['inputLogra'];
                 $numlogradouro = $_POST['inputNumLogra'];
                 $formapagamento = $_POST['for_pagamento'];
-                $troco = isset($_POST['inputTrocosim']) ? $_POST['inputTrocosim'] : $troconao = $_POST['inputTroconao'];
+                $troco = isset($_POST['inputTrocosim']) ? $_POST['inputTrocosim'] : $_POST['inputTroconao'];
                 $observacao = $_POST['inputObservacao'];
                 $numpedido = date('Ymd') . rand(1000, 9999);
                 
@@ -58,23 +58,52 @@
 
                         if ($result_insertitem === TRUE) {
 
-                            return '<h5>Pedido finalizado com sucesso!</h5><hr>';
+                            echo '<h5>Pedido finalizado com sucesso!</h5><hr><br><br><h4>Aguarde, você será redirecionado...</h4></div></main>';
+                            
+                            include_once ('../views/template/footer.php');
+
+                            function redirectWpp($nomecliente, $telecliente, $emailcliente, $cepcliente, $logradouro, $numlogradouro, $numpedido, $valorpedido, $formapagamento, $troco, $observacao) {
+
+                                $nome = $nomecliente;
+                                $tel = $telecliente;
+                                $email = $emailcliente;
+                                $numeropedido = $numpedido;
+                                $vlrped = $valorpedido;
+                                $formapg = $formapagamento;
+                                $trocope = $troco;
+                                $observacaope = $observacao;
+                                $cep = $cepcliente;
+                                $logradoped = $logradouro;
+                                $numlogra = $numlogradouro;
+
+                                $numero = 5585998729476;
+                                $texto = "&text=Pedido via StoreWhats realizado. Segue abaixo as informacoes:%0A%0ANumero do Pedido: $numeropedido%0AValor: R$$vlrped%0AForma de Pagamento: $formapg%0ATroco: $trocope%0AOBS: $observacaope%0A%0AInformacoes do Cliente => %0A%0ANome: $nome%0AE-mail: $email%0ATelefone: $tel%0A%0AInformacoes da Entrega =>%0A%0ACEP: $cep%0ALogradouro: $logradoped%0ANum: $numlogra";
+
+                                $url_base = "https://api.whatsapp.com/send?phone=".$numero."".$texto."";
+
+                                return header('refresh: 5; url='.$url_base.'');
+
+                            }
+
+                            redirectWpp($nomecliente, $telecliente, $emailcliente, $cepcliente, $logradouro, $numlogradouro, $numpedido, $valorpedido, $formapagamento, $troco, $observacao);
+
+                            session_destroy();
 
                         } else {
 
-                            return '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
+                            echo '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
 
                         }
 
                     } else {
 
-                        return '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
+                        echo '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
 
                     }
 
                 } else {
 
-                    return '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
+                    echo '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
 
                 }
 

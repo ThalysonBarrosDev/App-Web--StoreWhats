@@ -55,7 +55,7 @@
 
             if (count($_SESSION['produtos']) == 0) {
 
-                echo '<h4 style="text-align: center;">Carrinho Vazio.</h4>';
+                echo '<h4 style="text-align: center;">Carrinho vazio...</h4>';
 
             } else {
 
@@ -75,7 +75,6 @@
                             echo '<tr><td>'.$row['cod_prod'].'</td><td>'.$quantidade.'</td><td>'.$row['nome_prod'].'</td><td>R$ '.str_replace('.', ',', $row['preco_prod']).'</td></tr>';
                 
                         }
-
 
                     }
                 

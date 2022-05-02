@@ -23,14 +23,16 @@
         <div style="text-align: center;">
             <?php 
             
-                if (isset($_POST['email']) && isset($_SESSION['produtos'])) { 
+                if (isset($_POST['inputEmail']) && isset($_SESSION['produtos'])) { 
 
-                    echo Request::insertPed();
+                    return Request::insertPed();
+                    
 
                 } else {
 
                     echo '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
-                    header("refresh: 4; url=../views/checkout.php"); 
+                    echo '<br><br><h4>Aguarde, você será redirecionado...</h4>';
+                    header("refresh: 5; url=../views/cart.php"); 
 
                 }
 
@@ -39,10 +41,4 @@
 
     </main>
 
-    <footer class="footer">
-        <a href="https://www.althdevelopment.com" target="_blank">AlthDevelopment © <?php echo date('Y'); ?></a>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-</html>
+    <?php include_once ('../views/template/footer.php'); ?>
