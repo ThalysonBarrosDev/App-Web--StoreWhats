@@ -4,8 +4,6 @@
 
         public static function subCheckout() {
 
-            require_once ('../database/Database.php');
-
             $valor = 0.00;
 
             if (isset($_SESSION['produtos'])) {

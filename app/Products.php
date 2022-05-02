@@ -4,8 +4,6 @@
 
         public static function getProducts() {
 
-            require_once ('database/Database.php');
-
             $conn = Database::getConnection();
 
             $products = [];
@@ -30,8 +28,6 @@
         }
 
         public static function cartProducts() {
-
-            require_once ('../database/Database.php');
 
             if (!isset($_SESSION['produtos'])) {
 

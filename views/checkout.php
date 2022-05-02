@@ -46,7 +46,7 @@
             <div class="form-group row">
                 <div class="col-md-9 mt-3">
                     <label for="email">E-mail</label>
-                    <input type="email" class="form-control" name="inputEmail" placeholder="Ex: email@storewhats.com.br">
+                    <input type="email" class="form-control" name="inputEmail" placeholder="Ex: email@storewhats.com.br" required>
                 </div>
                 <div class="col-md-3 mt-3">
                     <label for="cep">CEP</label>
@@ -97,7 +97,7 @@
             </div>
 
             <div style="margin-left: 10px; margin-top: 50px;">
-                <h5>Total: R$ <?php echo str_replace('.', ',', Checkout::subCheckout()); ?></h5>
+                <h5>Total: R$ <?php $total = str_replace('.', ',', Checkout::subCheckout()); if ($total == 0) { echo "$total,00"; } else { echo $total; } ?></h5>
             </div>
 
             <div style="display: flex; justify-content: flex-end;">

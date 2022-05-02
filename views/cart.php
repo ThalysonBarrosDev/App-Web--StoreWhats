@@ -31,7 +31,7 @@
         <?php Products::cartProducts(); ?><br><hr>
 
         <div style="display: flex; justify-content: flex-end; margin-right: 10px;">
-            <h5>Subtotal: R$ <?php echo str_replace('.', ',', Checkout::subCheckout()); ?></h5>
+            <h5>Subtotal: R$ <?php $total = str_replace('.', ',', Checkout::subCheckout()); if ($total == 0) { echo "$total,00"; } else { echo $total; } ?></h5>
         </div>
 
         <div class="d-flex justify-content-center">

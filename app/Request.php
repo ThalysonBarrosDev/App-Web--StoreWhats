@@ -1,6 +1,5 @@
 <?php
 
-
     class Request {
 
         public static function insertPed() {
@@ -57,7 +56,25 @@
                 
                         }
 
-                    } 
+                        if ($result_insertitem === TRUE) {
+
+                            return '<h5>Pedido finalizado com sucesso!</h5><hr>';
+
+                        } else {
+
+                            return '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
+
+                        }
+
+                    } else {
+
+                        return '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
+
+                    }
+
+                } else {
+
+                    return '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
 
                 }
 

@@ -20,6 +20,23 @@
     
     <main class="content">
 
+        <div style="text-align: center;">
+            <?php 
+            
+                if (isset($_POST['email']) && isset($_SESSION['produtos'])) { 
+
+                    echo Request::insertPed();
+
+                } else {
+
+                    echo '<h5>Erro ao finalizar o pedido, tente novamente!</h5><hr>';
+                    header("refresh: 4; url=../views/checkout.php"); 
+
+                }
+
+            ?>
+        </div>
+
     </main>
 
     <footer class="footer">
