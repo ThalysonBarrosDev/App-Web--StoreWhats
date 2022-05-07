@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4 mt-3">
                     <label for="telefone">Telefone</label>
-                    <input type="text" class="form-control" name="inputTel" placeholder="Ex: (00) 9.9999-9999">
+                    <input type="number" class="form-control" name="inputTel" placeholder="Ex: (00) 9.9999-9999">
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-3 mt-3">
                     <label for="cep">CEP</label>
-                    <input type="text" class="form-control" name="inputCep" placeholder="Ex: 60700-000">
+                    <input type="number" class="form-control" name="inputCep" placeholder="Ex: 60700-000">
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-2 mt-3 mb-2">
                     <label for="numero">Número</label>
-                    <input type="text" class="form-control" name="inputNumLogra" placeholder="Ex: 2022">
+                    <input type="number" class="form-control" name="inputNumLogra" placeholder="Ex: 2022">
                 </div>
             </div>
 

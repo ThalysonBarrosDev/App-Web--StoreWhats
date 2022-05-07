@@ -75,7 +75,7 @@
 
                             redirectWpp($nomecliente, $telecliente, $emailcliente, $cepcliente, $logradouro, $numlogradouro, $numpedido, $valorpedido, $formapagamento, $troco, $observacao);
 
-                            session_destroy();
+                            header('Location: ../events/destroy.php');
 
                         } else {
 
