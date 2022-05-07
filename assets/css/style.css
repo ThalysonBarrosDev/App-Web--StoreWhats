@@ -64,6 +64,11 @@ main img {
     padding-top: 10px;
 }
 
+.buttonfinishiped {
+    display: flex;
+    justify-content: flex-end;
+}
+
 footer.footer {
     grid-area: footer;
     display: flex;
@@ -83,5 +88,11 @@ footer.footer a {
     header.header .logo {
         justify-content: flex-start;
         margin-left: 25px;
+    }
+
+    .buttonfinishiped {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
     }
 }

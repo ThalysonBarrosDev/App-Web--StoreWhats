@@ -101,7 +101,7 @@
                 <h5>Total: R$ <?php $total = str_replace('.', ',', Checkout::subCheckout()); if ($total == 0) { echo "$total,00"; } else { echo $total; } ?></h5>
             </div>
 
-            <div style="display: flex; justify-content: flex-end;">
+            <div class="buttonfinishiped">
                 <button class="btn btn-primary">Finalizar Pedido</button>
             </div>  
         </form>

@@ -55,7 +55,7 @@
 
             if (count($_SESSION['produtos']) == 0) {
 
-                echo '<h4 style="text-align: center;">Carrinho vazio...</h4>';
+                echo '<h4 style="text-align: center;">Carrinho vazio :(</h4>';
 
             } else {
 

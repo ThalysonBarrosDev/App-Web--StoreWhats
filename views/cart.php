@@ -35,7 +35,7 @@
             <h5>Subtotal: R$ <?php $total = str_replace('.', ',', Checkout::subCheckout()); if ($total == 0) { echo "$total,00"; } else { echo $total; } ?></h5>
         </div>
 
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5">
             <a href='../events/destroy.php' class="btn btn-primary" style="margin-right: 10px;">Limpar Carrinho</a>
             <a href='checkout.php' class="btn btn-primary">Finalizar Compras</a>
         </div>
